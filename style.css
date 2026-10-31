@@ -1,0 +1,1546 @@
+/* --- Variables (del Manual de Marca) --- */
+:root {
+    --color-primary: #164872;   /* Azul */
+    --color-secondary: #c19259; /* Dorado */
+    --color-dark: #000000;      /* Negro */
+    --color-light: #FDFBF5;     /* Fondo crema */
+    --color-white: #FFFFFF;     /* Blanco */
+    
+    /* Tipografías (Fallback de Google Fonts) */
+    --font-display: 'Cinzel', serif; /* Para títulos */
+    --font-body: 'Montserrat', sans-serif;  /* Para cuerpo */
+}
+
+/* --- Reseteo y Globales --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Header y Navegación --- */
+.main-header {
+    background: var(--color-white);
+    border-bottom: 2px solid var(--color-secondary);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    /* --- LÍNEAS PARA HACERLO FIJO --- */
+    position: sticky;
+    top: 0;
+    z-index: 900; /* Asegura que esté sobre el contenido */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-icon {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 1.1rem;
+}
+
+.nav-menu a {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--color-secondary);
+}
+
+.nav-toggle {
+    display: none; 
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+/* --- Botones (CTAs) --- */
+.cta-button {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+.cta-button:hover {
+    background: #a97f4b; /* Dorado más oscuro */
+}
+
+.cta-button-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-secondary);
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.cta-button-secondary:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+}
+
+.cta-link {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+.cta-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Hero Section (Página de Inicio) --- */
+.hero {
+    background: var(--color-light); 
+    text-align: center;
+    padding: 4rem 0;
+}
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+/* --- Sección Devocional (Página de Inicio) --- */
+.devotion-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 3rem 20px;
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+}
+
+.devotion-card {
+    background: var(--color-white);
+    padding: 0;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.devotion-card h3,
+.devotion-card p,
+.devotion-card a {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.devotion-card a {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Sección Productos (Página de Inicio) --- */
+.featured-products {
+    padding: 3rem 0;
+    text-align: center;
+    background: var(--color-white);
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.product-card {
+    background: #fff;
+    border: 1px solid #eee;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+}
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.product-card h3, .product-card p {
+    padding: 0 1.5rem;
+}
+.product-card h3 {
+    margin-top: 1rem;
+    color: var(--color-dark);
+}
+.product-card a {
+    margin: 1.5rem;
+    text-align: center;
+}
+
+/* --- Encabezado de Página (para Catálogo, Contacto, etc.) --- */
+.page-header {
+    background-color: var(--color-primary);
+    padding: 2rem 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--color-white);
+    margin-bottom: 0;
+}
+
+.page-header p.page-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* --- Estilos Página de Contacto --- */
+.contact-section {
+    background-color: var(--color-white);
+    padding: 3rem 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 900px;
+}
+
+.contact-section p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    line-height: 1.6;
+}
+
+.cta-form {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+.cta-form:hover {
+    background: #0a2f4c;
+}
+
+.cta-form i {
+    margin-right: 8px;
+}
+
+/* --- ESTILOS PARA PÁGINA DE CATÁLOGO (PRODUCTO) --- */
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    cursor: zoom-in; 
+}
+
+.thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 100%;
+    height: auto;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-gallery .thumbnail:hover {
+    border-color: var(--color-secondary);
+}
+
+.thumbnail-gallery .thumbnail.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(22, 72, 114, 0.5);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.product-features li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.product-features .fa-check {
+    color: var(--color-secondary);
+    margin-right: 0.5rem;
+}
+
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.product-actions label {
+    font-weight: 600;
+}
+
+.product-actions input[type="number"] {
+    width: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.product-actions .cta-button {
+    flex-grow: 1;
+    text-align: center;
+}
+.product-actions .cta-button i {
+    margin-right: 8px;
+}
+
+/* --- Estilos del Modal (Lightbox) para Zoom --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(22, 72, 114, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+/* --- Estilos para la sección Nosotros --- */
+.about-section {
+    padding: 3rem 0;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .about-card {
+        flex-direction: row;
+        text-align: left;
+    }
+    .about-card.right-aligned {
+        flex-direction: row-reverse;
+    }
+}
+
+.about-image-container {
+    flex: 1;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .about-image-container {
+        flex: 1;
+        max-width: 50%;
+    }
+}
+
+.about-image-container img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+    padding: 2rem;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .about-text h2 {
+        text-align: left;
+    }
+}
+
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .about-text p {
+        text-align: left;
+    }
+}
+
+/* --- ESTILOS PÁGINA SANTORAL --- */
+.calendar-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .calendar-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.calendar-month {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.calendar-month h2 {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    margin: 0;
+}
+
+.calendar-list {
+    list-style: none;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.calendar-list li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.calendar-list li:last-child {
+    border-bottom: none;
+}
+
+.calendar-list .calendar-day {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-right: 1rem;
+    width: 40px;
+    text-align: right;
+}
+
+/* --- ESTILOS PÁGINA CATECISMO (INFOGRAFÍAS) --- */
+.infographic-grid-container {
+    display: grid;
+    /* 1 columna en móvil, 2 en tablet, 3 en desktop */
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 0; /* Ajustado por la nueva sección */
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 576px) {
+    .infographic-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .infographic-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.infographic-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infographic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.infographic-card img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+}
+
+.infographic-text {
+    padding: 1.5rem;
+}
+
+.infographic-text h3 {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+}
+
+.infographic-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background: var(--color-primary);
+    color: #ddd;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 0;
+}
+.main-footer p {
+    color: var(--color-white);
+}
+.social-links a {
+    color: var(--color-white);
+    margin: 0 0.5rem;
+    text-decoration: underline;
+    font-weight: 600;
+}
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- Responsividad (Móvil) --- */
+@media (max-width: 768px) {
+    .logo-container {
+        max-width: 250px; 
+    }
+    .logo-icon {
+        height: 45px;
+    }
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+    .nav-menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        background: var(--color-white);
+        text-align: center;
+        border-top: 1px solid #eee;
+    }
+    .nav-menu.active {
+        display: flex; 
+    }
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-section {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding: 2rem 1rem;
+    }
+
+    .thumbnail-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .infographic-grid-container {
+        grid-template-columns: 1fr; /* 1 columna en móvil pequeño */
+    }
+}
+
+/* --- Botón Flotante de WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: var(--color-white);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 60px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* --- ESTILOS PÁGINA CINE DE SANTOS --- */
+.movie-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .movie-grid-container {
+        /* 2 columnas en tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .movie-grid-container {
+         /* 3 columnas en desktop, como la página de catecismo */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.movie-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Película recomendada del mes */
+.movie-card-featured {
+    position: relative;
+    border: 3px solid var(--color-secondary);
+}
+
+.movie-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.movie-badge i {
+    margin-right: 4px;
+}
+
+.movie-card .movie-poster {
+    width: 100%;
+    height: 400px; /* Alto fijo para pósters */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+    object-position: top; /* Se enfoca en la parte superior del póster */
+    display: block;
+}
+
+.movie-text {
+    padding: 1.5rem;
+}
+
+.movie-text h3 {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+}
+
+.movie-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.movie-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.platform-tag {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: var(--color-light);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- ESTILOS SEPARADORES Y TÍTULOS DE SECCIÓN --- */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+
+/* --- ESTILOS PÁGINA CATECISMO (AÑO LITÚRGICO) --- */
+.liturgical-calendar-section {
+    padding-top: 0; /* Ajustado por la sección de Adviento */
+    text-align: left; /* Ajustado por la sección de Adviento */
+}
+.liturgical-calendar-section h2,
+.liturgical-calendar-section p {
+    text-align: center; /* Centramos solo el título y párrafo de esta sección */
+}
+
+.liturgical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.liturgical-card {
+    display: flex;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    border-left: 10px solid var(--color-primary); /* Borde de color */
+    text-align: left;
+}
+
+.liturgical-icon {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+.liturgical-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+}
+.liturgical-text p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* --- Colores Litúrgicos para las tarjetas --- */
+.liturgical-card.violet { border-color: #551A8B; }
+.liturgical-card.violet .liturgical-icon { color: #551A8B; }
+
+.liturgical-card.white { border-color: #f0f0f0; }
+.liturgical-card.white .liturgical-icon { color: #ccc; }
+
+.liturgical-card.gold { border-color: var(--color-secondary); } /* Reusa tu dorado */
+.liturgical-card.gold .liturgical-icon { color: var(--color-secondary); }
+
+.liturgical-card.green { border-color: #006400; }
+.liturgical-card.green .liturgical-icon { color: #006400; }
+
+.liturgical-card.red { border-color: #B22222; }
+.liturgical-card.red .liturgical-icon { color: #B22222; }
+
+/* --- ESTILOS SECCIÓN DESTACADA DE TIEMPO LITÚRGICO --- */
+.season-highlight-section {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    /* Borde superior con el color litúrgico */
+    border-top: 10px solid #551A8B; /* Morado Adviento/Cuaresma */
+}
+
+@media (min-width: 768px) {
+    .season-highlight-section {
+        flex-direction: row;
+    }
+}
+
+.season-image {
+    flex: 1;
+}
+
+.season-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.season-text {
+    flex: 1.5; /* Más espacio para el texto */
+    padding: 2.5rem;
+}
+
+.season-date {
+    display: inline-block;
+    background: #551A8B; /* Color Morado */
+    color: var(--color-white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.season-date i {
+    margin-right: 6px;
+}
+
+.season-text h2 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    color: #551A8B; /* Color Morado */
+}
+
+.season-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Lista de características (re-usando estilo de catálogo) */
+.season-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.season-features li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.season-features .fa-check {
+    color: var(--color-secondary); /* Dorado de tu marca */
+    margin-right: 0.75rem;
+}
+
+/* --- ESTILOS PÁGINA ACCIÓN SOCIAL --- */
+.accion-intro {
+    text-align: center;
+    padding: 2.5rem 20px 0;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.accion-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.accion-photo {
+    text-align: center;
+    padding: 2rem 20px 1rem;
+}
+
+.accion-photo img {
+    max-width: 560px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.accion-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 20px;
+    flex-wrap: wrap;
+}
+
+.accion-card {
+    text-align: center;
+    background: var(--color-light);
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    min-width: 220px;
+}
+
+.accion-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+}
+
+.closing-prayer {
+    text-align: center;
+    padding: 1rem 20px 4rem;
+}
+
+.closing-prayer p {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* --- FILTRO DE MESES (Página Santoral) --- */
+.month-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+    justify-content: center;
+}
+
+.month-btn {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 2px solid var(--color-secondary);
+    background: transparent;
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+}
+
+.month-btn:hover,
+.month-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.month-btn.all-months {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.month-btn.all-months:hover,
+.month-btn.all-months.active {
+    background: #a97f4b;
+    border-color: #a97f4b;
+    color: var(--color-white);
+}
+/* --- AGENDA 2027 (Página Catálogo) --- */
+.agenda-badges {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.agenda-badges li {
+    background: var(--color-light);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.agenda-badges .fa-circle-check {
+    color: var(--color-secondary);
+    margin-right: 4px;
+}
+
+.product-actions a.cta-button i {
+    margin-right: 8px;
+}
+
+.agenda-section {
+    padding: 3rem 0;
+}
+
+.agenda-section-alt {
+    background: var(--color-white);
+}
+
+.agenda-section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.design-card,
+.contents-card {
+    text-align: center;
+}
+
+.design-card img,
+.contents-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.design-card img:hover,
+.contents-card img:hover {
+    transform: translateY(-5px);
+}
+
+.design-card h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.contents-card img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.contents-card h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: var(--color-primary);
+}
+
+.contents-card .fa-check {
+    color: var(--color-secondary);
+    margin-right: 4px;
+}
+
+.pack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
+
+.pack-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--color-light);
+    border: 1px solid #eee;
+    border-top: 6px solid var(--color-secondary);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.pack-card-featured {
+    border-top-color: var(--color-primary);
+}
+
+.pack-icon {
+    font-size: 2.5rem;
+}
+
+.pack-card h3 {
+    font-size: 1.3rem;
+    margin: 0.75rem 0 0.5rem;
+}
+
+.pack-includes {
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.pack-price-old {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.pack-highlight {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin: 0;
+}
+
+.pack-price {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.25rem 0;
+}
+
+.pack-price span {
+    font-size: 1rem;
+}
+
+.pack-note {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.pack-card .pack-button {
+    margin-top: auto;
+    width: 100%;
+}
+
+.pack-button i {
+    margin-right: 8px;
+}
+
+.pack-payment {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.pack-payment i {
+    color: var(--color-secondary);
+    margin-right: 6px;
+}
+
+.faq-container {
+    max-width: 800px;
+}
+
+.faq-item {
+    background: var(--color-white);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.faq-item p {
+    padding: 0 1.5rem 1rem;
+    margin: 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+.agenda-message {
+    max-width: 800px;
+    text-align: center;
+}
+
+.agenda-message > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #333;
+}
+
+.agenda-closing {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    background: var(--color-light);
+}
+
+.agenda-closing h3 {
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+/* --- FRANJA DE AVISO DE PREVENTA (Todas las páginas) --- */
+.preventa-strip {
+    position: relative;
+    background: var(--color-secondary);
+    text-align: center;
+    padding: 8px 44px;
+    font-size: 0.9rem;
+}
+
+.preventa-strip a {
+    color: var(--color-white);
+}
+
+.preventa-strip a:hover {
+    text-decoration: underline;
+}
+
+.preventa-strip i {
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+.preventa-strip-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+@media (max-width: 768px) {
+    .preventa-strip {
+        font-size: 0.8rem;
+    }
+    .preventa-strip-extra {
+        display: none;
+    }
+}
+
+/* --- BANNER DE PREVENTA (Página de Inicio) --- */
+.preventa-banner {
+    background: var(--color-primary);
+    padding: 3rem 0;
+}
+
+.preventa-banner-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .preventa-banner-inner {
+        grid-template-columns: 2fr 3fr;
+    }
+}
+
+.preventa-banner-image img {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.preventa-banner-text {
+    color: var(--color-white);
+}
+
+.preventa-banner-tag {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.preventa-banner-text h2 {
+    color: var(--color-white);
+    font-size: 2.4rem;
+    margin-top: 0;
+}
+
+.preventa-banner-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.preventa-banner-price strong {
+    color: var(--color-secondary);
+    font-size: 1.4rem;
+}
+
+.preventa-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.preventa-banner-actions .cta-button-secondary {
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.preventa-banner-actions .cta-button-secondary i {
+    margin-right: 6px;
+}
+
+.preventa-banner-text .preventa-banner-note {
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .preventa-banner-text {
+        text-align: center;
+    }
+    .preventa-banner-text h2 {
+        font-size: 1.8rem;
+    }
+    .preventa-banner-actions {
+        justify-content: center;
+    }
+}
